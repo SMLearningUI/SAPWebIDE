@@ -3,7 +3,7 @@
 	<Shell id="shell">
 		<App id="app">
 			<pages>
-				<Page title="Purchase Orders">
+				<Page title="Purchase Orders List">
 					<!-- INSERT IN STEP 3 OF THE NEXT TUTORIAL -->
 					<content>
 						<Table noDataText="No purchase orders found" items="{ path : '/PurchaseOrders', parameters: {expand: 'PurchaseOrderItems'}}">
