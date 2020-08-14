@@ -1,0 +1,106 @@
+<mvc:View controllerName="com.purchase.puchaseorderapp.controller.View1" xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+	xmlns:html="http://www.w3.org/1999/xhtml" xmlns:f="sap.ui.layout.form" xmlns:layout="sap.ui.layout" xmlns="sap.m" xmlns:core="sap.ui.core">
+	<Shell id="shell">
+		<App id="app">
+			<pages>
+				<Page title="Purchase Orders">
+					<!-- INSERT IN STEP 3 OF THE NEXT TUTORIAL -->
+					<content>
+						<Table noDataText="No purchase orders found" items="{ path : '/PurchaseOrders', parameters: {expand: 'PurchaseOrderItems'}}">
+							<columns>
+								<Column>
+									<Text text="PO ID"/>
+								</Column>
+								<Column>
+									<Text text="PO Item count"/>
+								</Column>
+								<Column>
+									<Text text="PO Items"/>
+								</Column>
+							</columns>
+							<items>
+								<ColumnListItem type="Navigation" press="onClickPO">
+									<cells>
+										<Text text="{POId}"></Text>
+										<Text text="{ItemCount}"></Text>
+										<Select
+											items="{path: '/PurchaseOrders', filters : [ { path : 'POId', operator : 'EQ', value1 : '{POId}'} ]}">
+											<core:Item text="{OrderedByName}"/>
+										</Select>
+									</cells>
+								</ColumnListItem>
+							</items>
+						</Table>
+					</content>
+				</Page>
+				<Page id="details" title="Details" navButtonPress="onNavButtonPress" showNavButton="true">
+					<f:SimpleForm columnsM="1" editable="false" layout="ResponsiveGridLayout" singleContainerFullSize="false">
+						<f:content>
+							<Label text="Purchase Order ID" width="100%">
+								<layoutData>
+									<layout:GridData span="L4 M4"/>
+								</layoutData>
+							</Label>
+							<Text text="{POId}"/>
+							<Label text="Supplier Name">
+								<layoutData>
+									<layout:GridData span="L4 M4"/>
+								</layoutData>
+							</Label>
+							<Text text="{SupplierName}"/>
+							<Label text="OrderedByName">
+								<layoutData>
+									<layout:GridData span="L4 M4"/>
+								</layoutData>
+							</Label>
+							<Text text="{OrderedByName}"/>
+							<Label text="DeliveryAddress">
+								<layoutData>
+									<layout:GridData span="L4 M4"/>
+								</layoutData>
+							</Label>
+							<Text text="{DeliveryAddress}"/>
+							<Label text="GrossAmount">
+								<layoutData>
+									<layout:GridData span="L4 M4"/>
+								</layoutData>
+							</Label>
+							<Text text="{GrossAmount}"/>
+							<Label text="CurrencyCode">
+								<layoutData>
+									<layout:GridData span="L4 M4"/>
+								</layoutData>
+							</Label>
+							<Text text="{CurrencyCode}"/>
+							<Label text="ItemCount">
+								<layoutData>
+									<layout:GridData span="L4 M4"/>
+								</layoutData>
+							</Label>
+							<Text text="{ItemCount}"/>
+							<Label text="Changed At">
+								<layoutData>
+									<layout:GridData span="L4 M4"/>
+								</layoutData>
+							</Label>
+							<Text text="{ChangedAt}"/>
+							<Label text="DeliveryDateEarliest">
+								<layoutData>
+									<layout:GridData span="L4 M4"/>
+								</layoutData>
+							</Label>
+							<Text text="{DeliveryDateEarliest}"/>
+							<Label text="LaterDelivDateExist">
+								<layoutData>
+									<layout:GridData span="L4 M4"/>
+								</layoutData>
+							</Label>
+							<Text text="{LaterDelivDateExist}"/>
+						</f:content>
+					</f:SimpleForm>
+				</Page>
+				<!-- INSERT CODE IN STEP 5.2 HERE -->
+			</pages>
+		</App>
+	</Shell>
+</mvc:View>
